@@ -1,9 +1,10 @@
 javascript:(() => {
   const text = String(window.document.getSelection());
   const inputStyle = 'border-radius: 2px; border: none; padding: 8px;';
-  const buttonStyle = 'border-radius: 2px; border: none; background: #fff; width: 80px; padding: 8px;';
+  const buttonStyle = 'border-radius: 2px; border: none; color: #666;  background: #fff; width: 80px; padding: 8px;';
   const height = window.parent.screen.height;
   const div = window.document.createElement('div');
+  div.style.color = '#666';
   div.style.fontFamily = 'sans-serif';
   div.style.fontSize = '14px';
   div.style.position = 'fixed';
@@ -45,7 +46,7 @@ javascript:(() => {
 
     startButton.addEventListener('click', () => {
       if (synthes !== null && speechSynthesis.paused) {
-        // TODO: Should investigate to change lang and rate under paused.
+        /* TODO: Should investigate to change lang and rate under paused. */
         speechSynthesis.resume(synthes);
         startButton.innerText = 'pause';
       } else if (synthes !== null && !speechSynthesis.paused) {
