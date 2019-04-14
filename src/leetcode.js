@@ -1,24 +1,24 @@
 javascript: (() => {
   const contents = [
-    // Id
+    /* Id */
     document
       .querySelector('#question-title')
       .innerText.split('.')[0]
       .trim(),
-    // Name
+    /* Name */
     document
       .querySelector('#question-title')
       .innerText.split('.')[1]
       .trim(),
-    // URL
+    /* URL */
     location.href,
-    // Difficulty
+    /* Difficulty */
     document.querySelector('div[diff]').innerText.trim(),
-    // Topics
+    /* Topics */
     Array.from(document.querySelectorAll('a[href*="/tag/"]'))
       .map((el) => el.innerText)
       .join(' / '),
-    // Solution
+    /* Solution */
     document.querySelector('div[data-key=solution]').dataset.disabled !== 'true' ? 'Yes' : 'No'
   ];
 
