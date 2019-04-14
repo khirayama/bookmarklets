@@ -1,4 +1,4 @@
-javascript:(() => {
+javascript: (() => {
   const text = String(window.document.getSelection());
   const inputStyle = 'border-radius: 2px; border: none; padding: 8px;';
   const buttonStyle = 'border-radius: 2px; border: none; color: #666;  background: #fff; width: 80px; padding: 8px;';
@@ -15,26 +15,8 @@ javascript:(() => {
   div.style.background = 'rgba(0, 0, 0, .4)';
   div.style.padding = '24px';
   div.style.zIndex = '1000000';
-  div.innerHTML = `
-<textarea class="textarea" style="width: 100%; height: calc(100% - 300px); ${inputStyle}">${text}</textarea>
-<div style="height: 300px;">
-  <table style="width: 100%;">
-    <tr style="text-align: right;">
-      <th style="font-weight: normal; text-align:left; color: #fff; font-size: 14px; ">Lang</th>
-      <td><input type="text" value="ja-JP" class="lang-input" style="width: 80px; text-align: right; ${inputStyle}"></td>
-    </tr>
-    <tr style="text-align: right;">
-      <th style="font-weight: normal; text-align:left; color: #fff;">Rate(Speed)</th>
-      <td><input type="text" value="1.0" class="rate-input" style="width: 80px; text-align: right; ${inputStyle}"></td>
-    </tr>
-  </table>
-  <button class="start-button" style="${buttonStyle}">start</button>
-  <button class="reset-button" style="${buttonStyle}">reset</button>
-  <button class="close-button" style="${buttonStyle}">close</button>
-</div>
-`;
+  div.innerHTML = `<textarea class="textarea" style="width: 100%; height: calc(100% - 300px); ${inputStyle}">${text}</textarea><div style="height: 300px;">  <table style="width: 100%;">    <tr style="text-align: right;">      <th style="font-weight: normal; text-align:left; color: #fff; font-size: 14px; ">Lang</th>      <td><input type="text" value="ja-JP" class="lang-input" style="width: 80px; text-align: right; ${inputStyle}"></td>    </tr>    <tr style="text-align: right;">      <th style="font-weight: normal; text-align:left; color: #fff;">Rate(Speed)</th>      <td><input type="text" value="3.0" class="rate-input" style="width: 80px; text-align: right; ${inputStyle}"></td>    </tr>  </table>  <button class="start-button" style="${buttonStyle}">start</button>  <button class="reset-button" style="${buttonStyle}">reset</button>  <button class="close-button" style="${buttonStyle}">close</button></div>`;
   window.document.querySelector('body').appendChild(div);
-
   setTimeout(() => {
     let synthes = null;
     const textarea = div.querySelector('.textarea');
@@ -43,7 +25,6 @@ javascript:(() => {
     const startButton = div.querySelector('.start-button');
     const resetButton = div.querySelector('.reset-button');
     const closeButton = div.querySelector('.close-button');
-
     startButton.addEventListener('click', () => {
       if (synthes !== null && speechSynthesis.paused) {
         /* TODO: Should investigate to change lang and rate under paused. */
@@ -64,15 +45,13 @@ javascript:(() => {
         startButton.innerText = 'pause';
       }
     });
-
     resetButton.addEventListener('click', () => {
       langInput.value = 'ja-JP';
-      rateInput.value = '1.0';
+      rateInput.value = '3.0';
       startButton.innerText = 'start';
       speechSynthesis.cancel(synthes);
       synthes = null;
     });
-
     closeButton.addEventListener('click', () => {
       speechSynthesis.cancel(synthes);
       div.parentNode.removeChild(div);
