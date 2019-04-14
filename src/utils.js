@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 function copyTextToClipboard(text) {
   const body = document.querySelector('body');
   const textarea = document.createElement('textarea');
@@ -14,6 +15,7 @@ function copyTextToClipboard(text) {
   return value;
 }
 
+// eslint-disable-next-line no-unused-vars
 function selectText(selector = 'body') {
   const els = document.querySelector(selector).querySelectorAll('div,p,ul,li,span,a,dl,table');
   const elList = [].slice.call(els);
