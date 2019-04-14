@@ -1,7 +1,8 @@
 javascript: (() => {
   const text = String(window.document.getSelection());
   const inputStyle = 'border-radius: 2px; border: none; padding: 8px;';
-  const buttonStyle = 'border-radius: 2px; border: none; color: #666;  background: #fff; width: 80px; padding: 8px;';
+  const buttonStyle =
+    'border-radius: 2px; border: none; color: #666;  background: #fff; width: 80px; padding: 8px;';
   const height = window.parent.screen.height;
   const div = window.document.createElement('div');
   div.style.color = '#666';

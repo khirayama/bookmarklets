@@ -1,4 +1,4 @@
-function copyTextToClipboard(text){
+function copyTextToClipboard(text) {
   const body = document.querySelector('body');
   const textarea = document.createElement('textarea');
 
@@ -17,7 +17,7 @@ function copyTextToClipboard(text){
 function selectText(selector = 'body') {
   const els = document.querySelector(selector).querySelectorAll('div,p,ul,li,span,a,dl,table');
   const elList = [].slice.call(els);
-  const text = elList.map(el => el.innerText).join('');
+  const text = elList.map((el) => el.innerText).join('');
 
   copyTextToClipboard(text);
 }
