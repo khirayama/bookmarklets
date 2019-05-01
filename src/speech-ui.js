@@ -16,7 +16,7 @@ javascript: (() => {
   div.style.background = 'rgba(0, 0, 0, .4)';
   div.style.padding = '24px';
   div.style.zIndex = '1000000';
-  div.innerHTML = `<textarea class="textarea" style="width: 100%; height: calc(100% - 300px); ${inputStyle}">${text}</textarea><div style="height: 300px;">  <table style="width: 100%;">    <tr style="text-align: right;">      <th style="font-weight: normal; text-align:left; color: #fff; font-size: 14px; ">Lang</th>      <td><input type="text" value="ja-JP" class="lang-input" style="width: 80px; text-align: right; ${inputStyle}"></td>    </tr>    <tr style="text-align: right;">      <th style="font-weight: normal; text-align:left; color: #fff;">Rate(Speed)</th>      <td><input type="text" value="3.0" class="rate-input" style="width: 80px; text-align: right; ${inputStyle}"></td>    </tr>  </table>  <button class="start-button" style="${buttonStyle}">start</button>  <button class="reset-button" style="${buttonStyle}">reset</button>  <button class="close-button" style="${buttonStyle}">close</button></div>`;
+  div.innerHTML = `<textarea class="textarea" style="width: 100%; height: calc(100% - 300px); ${inputStyle}">${text}</textarea><div style="height: 300px;">  <table style="width: 100%;">    <tr style="text-align: right;">      <th style="font-weight: normal; text-align:left; color: #fff; font-size: 14px; ">Lang</th>      <td><input type="text" value="ja-JP" class="lang-input" style="width: 80px; text-align: right; ${inputStyle}"></td>    </tr>    <tr style="text-align: right;">      <th style="font-weight: normal; text-align:left; color: #fff;">Rate(Speed)</th>      <td><input type="text" value="2.0" class="rate-input" style="width: 80px; text-align: right; ${inputStyle}"></td>    </tr>  </table>  <button class="start-button" style="${buttonStyle}">start</button>  <button class="reset-button" style="${buttonStyle}">reset</button>  <button class="close-button" style="${buttonStyle}">close</button></div>`;
   window.document.querySelector('body').appendChild(div);
   setTimeout(() => {
     let synthes = null;
@@ -48,7 +48,7 @@ javascript: (() => {
     });
     resetButton.addEventListener('click', () => {
       langInput.value = 'ja-JP';
-      rateInput.value = '3.0';
+      rateInput.value = '2.0';
       startButton.innerText = 'start';
       speechSynthesis.cancel(synthes);
       synthes = null;
@@ -57,5 +57,9 @@ javascript: (() => {
       speechSynthesis.cancel(synthes);
       div.parentNode.removeChild(div);
     });
+
+    setTimeout(() => {
+      startButton.click();
+    }, 100);
   }, 200);
 })();
